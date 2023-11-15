@@ -20,9 +20,8 @@ public class PerlinGenerator : MonoBehaviour
         {
             for (int y = 0; y < heightMap.GetLength(1); y++)
             {
-                heightMap[x, y] = Mathf.PerlinNoise((float)x/10, (float)y/10);
-                heightMap[x, y] += Mathf.PerlinNoise((float)x * 2 / 10, (float)y * 2 / 10) / 5;
-                
+                heightMap[x, y] = Mathf.PerlinNoise((float)x/10, (float)y/10) * 5;
+                //heightMap[x, y] += Mathf.PerlinNoise((float)x * 2 / 10, (float)y * 2 / 10) / 5;
             }
         }
 
