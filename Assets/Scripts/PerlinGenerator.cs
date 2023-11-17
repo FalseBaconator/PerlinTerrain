@@ -8,6 +8,11 @@ public class PerlinGenerator : MonoBehaviour
     public int width;
     public int depth;
 
+    public float divisionHandler;
+    public float intensity;
+    public int spectrals;
+    public int spectralScaling;
+
     public float[,] heightMap;
 
     public MeshGenerator meshGenerator;
@@ -20,8 +25,11 @@ public class PerlinGenerator : MonoBehaviour
         {
             for (int y = 0; y < heightMap.GetLength(1); y++)
             {
-                heightMap[x, y] = Mathf.PerlinNoise((float)x/10, (float)y/10) * 5;
-                //heightMap[x, y] += Mathf.PerlinNoise((float)x * 2 / 10, (float)y * 2 / 10) / 5;
+                for (int z = 0; z <= spectrals; z++)
+                {
+                    Debug.Log(intensity / (1 + z));
+                    heightMap[x, y] += Mathf.PerlinNoise((float)x * (Mathf.Pow(spectralScaling, z)) / divisionHandler, (float)y * (Mathf.Pow(spectralScaling, z)) / divisionHandler) * (intensity / (1 + z));
+                }
             }
         }
 
