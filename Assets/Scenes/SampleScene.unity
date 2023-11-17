@@ -359,9 +359,14 @@ MonoBehaviour:
   width: 100
   depth: 100
   divisionHandler: 10
-  intensity: 10
-  spectrals: 2
-  spectralScaling: 3
+  intensity: 5
+  spectrals: 3
+  spectralScaling: 2
+  biomeGrowthCycles: 25
+  mountainHeightMultiplier: 1.2
+  desertHeightDivision: 1.2
+  seaLevel: 0.75
+  minSpawnDif: 25
   meshGenerator: {fileID: 1284288215}
 --- !u!114 &1284288215
 MonoBehaviour:
