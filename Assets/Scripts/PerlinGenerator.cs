@@ -36,7 +36,7 @@ public class PerlinGenerator : MonoBehaviour
         
         GenerateInitialMap();
 
-        GenerateBiomes();
+        //GenerateBiomes();
 
         meshGenerator.GenerateMesh(heightMap);
 
@@ -56,10 +56,12 @@ public class PerlinGenerator : MonoBehaviour
                 {
                     heightMap[x, y] += Mathf.PerlinNoise((float)x * (Mathf.Pow(spectralScaling, z)) / divisionHandler, (float)y * (Mathf.Pow(spectralScaling, z)) / divisionHandler) * (intensity / (1 + z));
                 }
+                if (heightMap[x, y] <= seaLevel * intensity) heightMap[x, y] = seaLevel * intensity;
             }
         }
     }
 
+    /*
     void GenerateBiomes()
     {
         biomes = new Biome[width, depth];
@@ -145,7 +147,9 @@ public class PerlinGenerator : MonoBehaviour
         }
 
     }
-
+    */
+    
+    /*
     Biome adjacentToBiome(int x, int y)
     {
         Biome[] temps = new Biome[4];
@@ -199,5 +203,6 @@ public class PerlinGenerator : MonoBehaviour
         }
 
     }
+    */
 
 }
